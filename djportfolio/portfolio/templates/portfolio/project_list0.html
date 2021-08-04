@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+    <!-- Portfolio Start -->
+    <div class="project-grid">
+    <div class="row">
+    {% for instance in object_list %}
+
+        <div class="col-md-4 col-xs-6">
+          <a href="{{ instance.get_absolute_url }}">
+            <img src="{{ instance.get_image }}" class="thumb-img"></img>
+          </a>
+          <h5>{{ instance.name }}</h5>
+          <p>{{ instance.year }}</p>
+          <a href='{{ instance.webpage }}'>{{ instance.name }}</a></p>
+        </div>
+      {% if forloop.counter|divisibleby:2 %}
+      </div><div class="row">
+      {% endif %}
+
+    {% endfor %}
+    </div>
+
+    </div>
+    <!-- Portfolio End -->
+
+
+
+
+
+
+{% endblock %}
